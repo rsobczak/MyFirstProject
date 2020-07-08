@@ -38,6 +38,12 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     TextViewProbny2.text = userDefault.string(forKey: "PodpisPrzegrodki")
  */
     }
+    
+    // dopisane 08.07.2020
+    override func viewDidAppear (_ animated: Bool) {
+        stworzAlert(tytul: "Proszę wpisać wartość cieśnienia w następującym formacie" , wiadomosc: "XXX/XX")
+    }
+    
     @IBAction func ZaładujButtonAkcja(_ sender: Any) {
         let userDefault = UserDefaults.standard
         TextViewProbny2.text = userDefault.string(forKey: "PodpisPrzegrodki")
@@ -96,6 +102,19 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         let typowanyZnakowZbior = CharacterSet(charactersIn: string) // [przygotowanie do tego by wywola linijke ponizej. By uzyc metody isSuper set musze miec 2 zbiory by je porownac. Te dwi liniki sa przygotowaniem do wywolania linikji ponizej. czyli te dwi linijki przygotowuja nam ZBIORY.
         return dopuszczlnyZnakZbior.isSuperset(of: typowanyZnakowZbior ) // metoda isSuperset - wbudowana metoda , ktora na dwoch zbiorach srawdza czy jeden zbior jest supersetem drugiego. Sprwdzmy czy dany zbior jest supersetem dla wpisanych znakow
     }
+    
+    /*dopisane 08.07.2020
+     https://www.youtube.com/watch?v=4EAGIiu7SFU */
+    func stworzAlert(tytul: String, wiadomosc: String) {
+        
+        let alert = UIAlertController(title: tytul, message: wiadomosc, preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default , handler: { (action) in alert.dismiss(animated: true, completion: nil)
+            print ("OK")
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 
 }// nawias zamykający klase
 
@@ -105,3 +124,5 @@ extension ViewController: UITextFieldDelegate { // tu tamy dzieczcenie klas. Sup
         return true
     }
 }
+
+
