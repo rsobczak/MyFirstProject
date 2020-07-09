@@ -24,7 +24,7 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         // Do any additional setup after loading the view.
         
         textFieldCisnienie.delegate = self
-        //self jest biezaco aktywnym obiektem w ktorym self sie znajduje. ViewController jest delegatem akcji wywoływanych na rzecz textFieldCiesnienie. Wiadomosci beda przesyłane z textFieldCisnienie do VieControlera prrzy pomoc delegate
+    //self jest biezaco aktywnym obiektem w ktorym self sie znajduje. ViewController jest delegatem akcji wywoływanych na rzecz textFieldCiesnienie. Wiadomosci beda przesyłane z textFieldCisnienie do VieControlera prrzy pomoc delegate
         
         textFieldTetno.delegate = self
         textFieldSaturacja.delegate = self
@@ -32,8 +32,7 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         
     //dopisane 06.07.2020 do User default
     // wyciaganie z przegordki
-    
-    /*
+        /*
     let userDefault = UserDefaults.standard
     TextViewProbny2.text = userDefault.string(forKey: "PodpisPrzegrodki")
  */
@@ -41,8 +40,8 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     
     // dopisane 08.07.2020
     override func viewDidAppear (_ animated: Bool) {
-        stworzAlert(tytul: "Proszę wpisać wartość cieśnienia w następującym formacie" , wiadomosc: "XXX/XX")
-    }
+        stworzAlert(tytul: "Proszę wpisać wartość ciśnienia w następującym formacie:" , wiadomosc: "XXX/XX")
+    } // co ma sie wyswietlic w moim alercie. Jesli metoda jest nadpisywana tzn. ze ta metoda juz istnieje w klasie bazwej i istnieje z konkretna sygnatura.
     
     @IBAction func ZaładujButtonAkcja(_ sender: Any) {
         let userDefault = UserDefaults.standard
@@ -57,9 +56,10 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     // zaktualizuj poprzedni tekst z text view
     //    TextView.text = cisnienie
         
-        // przycisk odpowada za jakąś akcje. Za taką jaką sobi eprzypniemy. Ja zadecydowalem,
+        // przycisk odpowada za jakąś akcje. Za taką jaką sobie przypniemy.
         
-        TextViewProbny2.text = "Ciśnienie: \(textFieldCisnienie.text!)\n Tętno: \(textFieldTetno.text!) uderzeń na minutę\n Saturacja: \(textFieldSaturacja.text!) %\n Cukier: \(textFieldCukier.text!) mg/dL"
+        TextViewProbny2.text =
+        "Ciśnienie: \(textFieldCisnienie.text!)\n Tętno: \(textFieldTetno.text!) uderzeń na minutę\n Saturacja: \(textFieldSaturacja.text!) %\n Cukier: \(textFieldCukier.text!) mg/dL"
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -97,27 +97,31 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
  // dopisane 07.07.2020 wpisywanie tylko cyfr
  // delegaty sa przypiete do TextField - na rzecz text fielda wykonuje sie akcja . Moj View Controler jest delegatem dla wszystkich text Fieldow. moze ragować na zdarzenie zmiany tekstu.
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let dopuszczalnyZnak = "+1234567890"
+        let dopuszczalnyZnak = "+1234567890/ " // dodano znak / i spacja
         let dopuszczlnyZnakZbior = CharacterSet(charactersIn: dopuszczalnyZnak) // dwa teskty: 1 tekst ktos wpisa, a drugi tekst jest wzorcem. I chce sprawdzic czy tekst wpisany jest zgodny ze wzorcem
-        let typowanyZnakowZbior = CharacterSet(charactersIn: string) // [przygotowanie do tego by wywola linijke ponizej. By uzyc metody isSuper set musze miec 2 zbiory by je porownac. Te dwi liniki sa przygotowaniem do wywolania linikji ponizej. czyli te dwi linijki przygotowuja nam ZBIORY.
-        return dopuszczlnyZnakZbior.isSuperset(of: typowanyZnakowZbior ) // metoda isSuperset - wbudowana metoda , ktora na dwoch zbiorach srawdza czy jeden zbior jest supersetem drugiego. Sprwdzmy czy dany zbior jest supersetem dla wpisanych znakow
+        let typowanyZnakowZbior = CharacterSet(charactersIn: string) // przygotowanie do tego by wywolać linijke poniżej. By uzyc metody isSuper set musze miec 2 zbiory by je porównać. Te dwie liniki są przygotowaniem do wywołania linikji poniżej, czyli te dwie linijki przygotowuja nam ZBIORY.
+        return dopuszczlnyZnakZbior.isSuperset(of: typowanyZnakowZbior ) // metoda isSuperset - wbudowana metoda , ktora na dwoch zbiorach sprawdza czy jeden zbior jest supersetem drugiego. Sprwdzmy czy dany zbior jest supersetem dla wpisanych znakow
     }
     
     /*dopisane 08.07.2020
-     https://www.youtube.com/watch?v=4EAGIiu7SFU */
+     https://www.youtube.com/watch?v=4EAGIiu7SFU pojawianie sie okienka Pop Up
+     */
     func stworzAlert(tytul: String, wiadomosc: String) {
         
         let alert = UIAlertController(title: tytul, message: wiadomosc, preferredStyle: UIAlertController.Style.alert)
         
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default , handler: { (action) in alert.dismiss(animated: true, completion: nil)
-            print ("OK")
-        }))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default ,
+                                      handler: { (action) in alert.dismiss(animated: true, completion: nil)
+            print ("OK") //jakie ma zawierac w sobie ten alert mozliwe akcje
+        })) // handler to co ma sie stac w momencie gdy ta akcja zostanie wykonana. Competion - dodatkowy call back, co ma sie stać, gdy akcja sie zakończy. Comlietion = nih -> czyli ma sie nic nie dziac dodatkowego
         
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil) //tu wywołalismy metode o nazwie present. Self mowilo skad jest metoda. Self mozna pominac przy wywolaniu metod. Czyli self mówi nam w jakim kontekście jestem tzn :ViewController . A ViewController ma metode present.
+       // Presents a view controller modally - modally czyli musisz najpierw zrobic cos bo inne opcje masz zablokowane. Czyli musiszy go zdyssmisowac.
     }
 
 }// nawias zamykający klase
 
+// rozszzerzenie klasy ViewController , ktora dziedziczy po UITextFieldDelegate
 extension ViewController: UITextFieldDelegate { // tu tamy dzieczcenie klas. Superklasa: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool { // metoda
         textField.resignFirstResponder()
