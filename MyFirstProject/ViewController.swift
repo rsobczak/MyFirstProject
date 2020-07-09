@@ -51,19 +51,19 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     @IBAction func ZatwierdzButton(_ sender: UIButton) // przycisk jest obiektem tylko przez XX coda zostala przypisana funckcja. I
         
     {
-    // pobierz text z texf Field
-    //let cisnienie = textFieldCisnienie.text
-    // zaktualizuj poprzedni tekst z text view
-    //    TextView.text = cisnienie
-        
+        // utworzenie nowego date formatera
+        let formaterCzasu = DateFormatter()
+        formaterCzasu.dateFormat = "dd - MM - yyyy HH:mm" // format czasu
+        let data: String = formaterCzasu.string(from: Date())
         // przycisk odpowada za jakąś akcje. Za taką jaką sobie przypniemy.
         
+        // placeholder daty
         TextViewProbny2.text =
-        "Ciśnienie: \(textFieldCisnienie.text!)\n Tętno: \(textFieldTetno.text!) uderzeń na minutę\n Saturacja: \(textFieldSaturacja.text!) %\n Cukier: \(textFieldCukier.text!) mg/dL"
+        "\(data)\n Ciśnienie: \(textFieldCisnienie.text!)\n Tętno: \(textFieldTetno.text!) uderzeń na minutę\n Saturacja: \(textFieldSaturacja.text!) %\n Cukier: \(textFieldCukier.text!) mg/dL"
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    // funcka przyjmuje 2 parametry TOUCHES: SET- zbôr obiektów UITouch z ewentem (zdarzeniem) - uzytkownik dokonał inteakcji z widokiem. Event jes ttypu UIEVENT, touches jest typu SET<>
+    // funkcja przyjmuje 2 parametry TOUCHES: SET- zbôr obiektów UITouch z ewentem (zdarzeniem) - uzytkownik dokonał inteakcji z widokiem. Event jest typu UIEVENT, touches jest typu SET<>
         // ? oznacza ze UIEVENT jest nilem i czasami moze nie mic przypisanej wartosci lub akcji
     
     
