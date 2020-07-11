@@ -22,6 +22,7 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        //view.backgroundColor = .red
         
         textFieldCisnienie.delegate = self
     //self jest biezaco aktywnym obiektem w ktorym self sie znajduje. ViewController jest delegatem akcji wywoływanych na rzecz textFieldCiesnienie. Wiadomosci beda przesyłane z textFieldCisnienie do VieControlera prrzy pomoc delegate
