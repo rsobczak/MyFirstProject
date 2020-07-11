@@ -48,23 +48,24 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         TextViewProbny2.text = userDefault.string(forKey: "PodpisPrzegrodki")
     }
     
-    @IBAction func ZatwierdzButton(_ sender: UIButton) // przycisk jest obiektem tylko przez XX coda zostala przypisana funckcja. I
+    @IBAction func ZatwierdzButton(_ sender: UIButton) // przycisk jest obiektem tylko przez Xcoda zostala przypisana funckcja.
         
     {
         // utworzenie nowego date formatera
         let formaterCzasu = DateFormatter()
-        formaterCzasu.dateFormat = "dd - MM - yyyy HH:mm" // format czasu
+        formaterCzasu.dateFormat = "dd/MM/yyyy HH:mm" // format czasu
         let data: String = formaterCzasu.string(from: Date())
         // przycisk odpowada za jakąś akcje. Za taką jaką sobie przypniemy.
         
         // placeholder daty
-        TextViewProbny2.text =
-        "\(data)\n Ciśnienie: \(textFieldCisnienie.text!)\n Tętno: \(textFieldTetno.text!) uderzeń na minutę\n Saturacja: \(textFieldSaturacja.text!) %\n Cukier: \(textFieldCukier.text!) mg/dL"
+        let jakisTekst: String = "\(data)\n Ciśnienie: \(textFieldCisnienie.text!)\n Tętno: \(textFieldTetno.text!) uderzeń na minutę\n Saturacja: \(textFieldSaturacja.text!) %\n Cukier: \(textFieldCukier.text!) mg/dL"
+        TextViewProbny2.text = jakisTekst
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     // funkcja przyjmuje 2 parametry TOUCHES: SET- zbôr obiektów UITouch z ewentem (zdarzeniem) - uzytkownik dokonał inteakcji z widokiem. Event jest typu UIEVENT, touches jest typu SET<>
-        // ? oznacza ze UIEVENT jest nilem i czasami moze nie mic przypisanej wartosci lub akcji
+    // ? oznacza ze UIEVENT jest nilem i czasami moze nie mic przypisanej wartosci lub akcji
     
     
         textFieldCisnienie.resignFirstResponder()
