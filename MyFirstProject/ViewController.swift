@@ -18,6 +18,8 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     @IBOutlet weak var SwitchButton: UISwitch!
     @IBOutlet weak var TextViewProbny2: UITextView!
     @IBOutlet weak var ZaładujButton: UIButton!
+   //dodano 12.07.2020
+    @IBOutlet weak var TextFieldCisnienieRozkurczowe: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,8 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         textFieldTetno.delegate = self
         textFieldSaturacja.delegate = self
         textFieldCukier.delegate = self
+        //dopisano 12.07.2020
+        TextFieldCisnienieRozkurczowe.delegate = self
         
     //dopisane 06.07.2020 do User default
     // wyciaganie z przegordki
@@ -41,8 +45,8 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     
     // dopisane 08.07.2020
     override func viewDidAppear (_ animated: Bool) {
-        stworzAlert(tytul: "Proszę wpisać wartość ciśnienia w następującym formacie:" , wiadomosc: "XXX/XX")
-    } // co ma sie wyswietlic w moim alercie. Jesli metoda jest nadpisywana tzn. ze ta metoda juz istnieje w klasie bazwej i istnieje z konkretna sygnatura.
+        stworzAlert(tytul: "Proszę wpisać wartości ciśnienia:", wiadomosc: "skurczowego / rozkurczowego")
+    } // co ma sie wyswietlic w moim alercie. Jesli metoda jest nadpisywana tzn. ze ta metoda juz istnieje w klasie nazwej i istnieje z konkretna sygnatura.
     
     @IBAction func ZaładujButtonAkcja(_ sender: Any) {
         let userDefault = UserDefaults.standard
@@ -59,7 +63,7 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         // przycisk odpowada za jakąś akcje. Za taką jaką sobie przypniemy.
         
         // placeholder daty
-        let jakisTekst: String = "\(data)\n Ciśnienie: \(textFieldCisnienie.text!)\n Tętno: \(textFieldTetno.text!) uderzeń na minutę\n Saturacja: \(textFieldSaturacja.text!) %\n Cukier: \(textFieldCukier.text!) mg/dL"
+        let jakisTekst: String = "\(data)\n Ciśnienie: \(textFieldCisnienie.text!) /  \(TextFieldCisnienieRozkurczowe.text!)\n Tętno: \(textFieldTetno.text!) uderzeń na minutę\n Saturacja: \(textFieldSaturacja.text!) %\n Cukier: \(textFieldCukier.text!) mg/dL"
         TextViewProbny2.text = jakisTekst
 
     }
@@ -73,6 +77,8 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         textFieldCukier.resignFirstResponder()
         textFieldTetno.resignFirstResponder()
         textFieldSaturacja.resignFirstResponder()
+        //dodano 12.07.2020
+        TextFieldCisnienieRozkurczowe.resignFirstResponder()
     }
     
     // tryb ciemny
@@ -99,7 +105,7 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
  // dopisane 07.07.2020 wpisywanie tylko cyfr
  // delegaty sa przypiete do TextField - na rzecz text fielda wykonuje sie akcja . Moj View Controler jest delegatem dla wszystkich text Fieldow. moze ragować na zdarzenie zmiany tekstu.
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let dopuszczalnyZnak = "+1234567890/ " // dodano znak / i spacja
+        let dopuszczalnyZnak = "+1234567890 /" // dodano znak / i spacja
         let dopuszczlnyZnakZbior = CharacterSet(charactersIn: dopuszczalnyZnak) // dwa teskty: 1 tekst ktos wpisa, a drugi tekst jest wzorcem. I chce sprawdzic czy tekst wpisany jest zgodny ze wzorcem
         let typowanyZnakowZbior = CharacterSet(charactersIn: string) // przygotowanie do tego by wywolać linijke poniżej. By uzyc metody isSuper set musze miec 2 zbiory by je porównać. Te dwie liniki są przygotowaniem do wywołania linikji poniżej, czyli te dwie linijki przygotowuja nam ZBIORY.
         return dopuszczlnyZnakZbior.isSuperset(of: typowanyZnakowZbior ) // metoda isSuperset - wbudowana metoda , ktora na dwoch zbiorach sprawdza czy jeden zbior jest supersetem drugiego. Sprwdzmy czy dany zbior jest supersetem dla wpisanych znakow
