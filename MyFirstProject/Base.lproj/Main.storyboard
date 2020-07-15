@@ -15,114 +15,98 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WSY-0f-csy">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GrP-Zh-Ed2">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ykm-xe-M8X">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tętno" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MxO-QR-Som">
-                                                <rect key="frame" x="96.804769446221144" y="177" width="179.99999999999966" height="34.000000000000057"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cukier" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rzv-wZ-q7a">
-                                                <rect key="frame" x="96.804769446221144" y="310" width="179.99999999999994" height="33.999999999999972"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Saturacja krwi" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bju-Cm-VJj">
-                                                <rect key="frame" x="96.804769446221144" y="239.00000000000023" width="179.99999999999994" height="33.999999999999943"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tryb ciemny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISb-cC-8m5">
-                                                <rect key="frame" x="225" y="52" width="115" height="31"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ciś. skurcz." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7wv-P5-i8z">
-                                                <rect key="frame" x="34" y="122" width="134" height="34"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGP-HG-98N">
-                                                <rect key="frame" x="55" y="429" width="55" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Zapisz"/>
-                                                <connections>
-                                                    <action selector="zapiszPrzycisk:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mx3-AW-VRA"/>
-                                                </connections>
-                                            </button>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YqR-6P-Xwj">
-                                                <rect key="frame" x="160" y="52" width="34.000000000000057" height="30.999999999999943"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <connections>
-                                                    <action selector="TrybCiemnyAkcja:" destination="BYZ-38-t0r" eventType="valueChanged" id="GBz-WK-TSm"/>
-                                                </connections>
-                                            </switch>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ciś. rozkurcz." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pvJ-U0-GgC">
-                                                <rect key="frame" x="214" y="122" width="109" height="34"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQz-cc-MHM">
-                                                <rect key="frame" x="236" y="429" width="72" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Załaduj"/>
-                                                <connections>
-                                                    <action selector="ZaładujButtonAkcja:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uTH-n6-sOS"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlD-uq-bry">
-                                                <rect key="frame" x="112" y="389" width="154" height="32"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <state key="normal" title="Zatwierdź"/>
-                                                <connections>
-                                                    <action selector="ZatwierdzButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oS1-x1-InW"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YqR-6P-Xwj">
+                                        <rect key="frame" x="170" y="52" width="34.000000000000057" height="30.999999999999943"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="TrybCiemnyAkcja:" destination="BYZ-38-t0r" eventType="valueChanged" id="GBz-WK-TSm"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tryb ciemny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISb-cC-8m5">
+                                        <rect key="frame" x="230" y="52" width="115" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ciś. rozkurcz." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pvJ-U0-GgC">
+                                        <rect key="frame" x="27" y="147" width="142" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tętno" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MxO-QR-Som">
+                                        <rect key="frame" x="97" y="218" width="179.99999999999966" height="34.000000000000057"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Saturacja krwi" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bju-Cm-VJj">
+                                        <rect key="frame" x="98" y="274" width="179.99999999999994" height="33.999999999999943"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cukier" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rzv-wZ-q7a">
+                                        <rect key="frame" x="97" y="339" width="179.99999999999994" height="33.999999999999972"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlD-uq-bry">
+                                        <rect key="frame" x="110" y="464" width="154" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Zatwierdź"/>
+                                        <connections>
+                                            <action selector="ZatwierdzButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oS1-x1-InW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGP-HG-98N">
+                                        <rect key="frame" x="71" y="522" width="55" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Zapisz"/>
+                                        <connections>
+                                            <action selector="zapiszPrzycisk:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mx3-AW-VRA"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Tu powinno być ciśnienie, tętno, saturacja, cukier " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HyL-Lf-fpx">
+                                        <rect key="frame" x="15" y="810" width="343" height="170"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1000" id="IuL-am-Ke7"/>
-                                            <constraint firstAttribute="height" constant="1000" id="LAc-wq-ft6"/>
-                                        </constraints>
-                                    </view>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ciś. skurcz." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7wv-P5-i8z">
+                                        <rect key="frame" x="196" y="146" width="149" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQz-cc-MHM">
+                                        <rect key="frame" x="234" y="522" width="72" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Załaduj"/>
+                                        <connections>
+                                            <action selector="ZaładujButtonAkcja:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uTH-n6-sOS"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="ykm-xe-M8X" firstAttribute="bottom" secondItem="L6K-GY-SOR" secondAttribute="bottom" id="IqP-mB-Ca9"/>
-                                    <constraint firstItem="ykm-xe-M8X" firstAttribute="trailing" secondItem="L6K-GY-SOR" secondAttribute="trailing" id="YpE-aC-gFi"/>
-                                    <constraint firstItem="ykm-xe-M8X" firstAttribute="top" secondItem="L6K-GY-SOR" secondAttribute="top" id="jSs-JI-2Wp"/>
-                                    <constraint firstItem="ykm-xe-M8X" firstAttribute="leading" secondItem="L6K-GY-SOR" secondAttribute="leading" id="vSF-65-xt1"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="tgk-ep-NEl"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="L6K-GY-SOR"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="hbI-9h-eDA"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="b6Q-EY-E9b"/>
                             </scrollView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Tu powinno być ciśnienie, tętno, saturacja, cukier " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HyL-Lf-fpx">
-                                <rect key="frame" x="16" y="778" width="343" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="WSY-0f-csy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ETo-qz-JQg"/>
-                            <constraint firstItem="ykm-xe-M8X" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="EYt-hV-PF8"/>
-                            <constraint firstItem="WSY-0f-csy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="WiD-g2-dfK"/>
-                            <constraint firstAttribute="bottom" secondItem="WSY-0f-csy" secondAttribute="bottom" id="cI0-0A-txR"/>
-                            <constraint firstItem="WSY-0f-csy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oD7-7O-IRD"/>
+                            <constraint firstItem="GrP-Zh-Ed2" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="1vw-Ea-J9m"/>
+                            <constraint firstItem="GrP-Zh-Ed2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BIG-M1-OM9"/>
+                            <constraint firstItem="GrP-Zh-Ed2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lbm-BM-Zx9"/>
+                            <constraint firstAttribute="bottom" secondItem="GrP-Zh-Ed2" secondAttribute="bottom" id="cua-AW-Jw3"/>
+                            <constraint firstItem="GrP-Zh-Ed2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="eqt-dR-tDH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -141,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="604" y="-58.374384236453203"/>
+            <point key="canvasLocation" x="680.79999999999995" y="-285.96059113300493"/>
         </scene>
     </scenes>
 </document>
