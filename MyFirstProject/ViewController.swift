@@ -20,6 +20,10 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     @IBOutlet weak var ZaładujButton: UIButton!
    //dodano 12.07.2020
     @IBOutlet weak var TextFieldCisnienieRozkurczowe: UITextField!
+    @IBOutlet weak var angielskiButton: UIButton!
+    @IBOutlet weak var polskiButton: UIButton!
+    @IBOutlet weak var niemieckiButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +45,7 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     let userDefault = UserDefaults.standard
     TextViewProbny2.text = userDefault.string(forKey: "PodpisPrzegrodki")
  */
+        ustawEtykiety("EN")// uruchamia etykiete 
     }
     
     // dopisane 08.07.2020
@@ -98,7 +103,7 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     https://www.youtube.com/watch?v=KDloMlCwJnY */
    // tu wkladamy do przegrodki
     @IBAction func zapiszPrzycisk(_ sender: Any) {
-        let userDefaults = UserDefaults.standard // standard -> Nazwa "magazynu". W takim magazynie mozna zapisprzegrodki rzegordem ma jakas nalepke. Jak chce wlozyc do magadzynu - to mozwie do jakiej przegordki to wkladam. A jak chce wyjaąć - z jakiej orzegodki chce to wyjac. Nazwa przegodki nadana jest sama. Nazwa magazynu to standard. Metoda "Set" przyjmuje 2 oarametry: 1 to wartosc ktora wkladam do przegordki , a druga wartosc - klucz - tj. nalepka tej przegordki
+        let userDefaults = UserDefaults.standard // standard -> Nazwa "magazynu". W takim magazynie mozna z przeprzegrodki rzegordem ma jakas nalepke. Jak chce wlozyc do magadzynu - to mozwie do jakiej przegordki to wkladam. A jak chce wyjaąć - z jakiej orzegodki chce to wyjac. Nazwa przegodki nadana jest sama. Nazwa magazynu to standard. Metoda "Set" przyjmuje 2 oarametry: 1 to wartosc ktora wkladam do przegordki , a druga wartosc - klucz - tj. nalepka tej przegordki
         userDefaults.set(TextViewProbny2.text, forKey: "PodpisPrzegrodki") // "podpisPrzegordki" -> nazwa etykiety. SET - to w tym przypadku USTAW -> Co / Gdzie.
     }
     
@@ -126,6 +131,34 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         present(alert, animated: true, completion: nil) //tu wywołalismy metode o nazwie present. Self mowilo skad jest metoda. Self mozna pominac przy wywolaniu metod. Czyli self mówi nam w jakim kontekście jestem tzn :ViewController . A ViewController ma metode present.
        // Presents a view controller modally - modally czyli musisz najpierw zrobic cos bo inne opcje masz zablokowane. Czyli musiszy go zdyssmisowac.
     }
+    
+    @IBAction func angielskiButtonAction(_ sender: Any) {
+        ustawEtykiety("EN")
+    }
+    
+    func ustawEtykiety(_ jezyk:String){
+        let etykiety = languageMenager.pobierzJezyk(jezyk)
+        
+        TrybCiemnyLabel.text = etykiety["Label_DarkMode"]
+        textFieldCisnienie.placeholder = etykiety["Label_CisnienieSkurczowe"]
+        TextFieldCisnienieRozkurczowe.placeholder = etykiety["Label_CiesnienieRozkurczowe"]
+         textFieldTetno.placeholder = etykiety["Label_tetno"]
+        textFieldCukier.placeholder = etykiety["Label_cukier"]
+        textFieldSaturacja.placeholder = etykiety["Label_SaturacjaKrwi"]
+        /*zapiszPrzycisk.text = etykiety("Button_Zapisz")
+        ZatwierdzButton.text = etykiety("Button_Zatwierdz")
+        ZaładujButton.placeholder = etykiety("Buton_Zaladuj")*/
+    }
+    
+    @IBAction func polskiButtonAktion(_ sender: Any) {
+        ustawEtykiety("PL")
+    }
+   
+
+    @IBAction func niemieckiButtonAction(_ sender: Any) {
+        ustawEtykiety("DE")
+    }
+    
 
 }// nawias zamykający klase
 
@@ -136,5 +169,6 @@ extension ViewController: UITextFieldDelegate { // tu tamy dzieczcenie klas. Sup
         return true
     }
 }
+
 
 

@@ -15,6 +15,7 @@
 		582B009F24A6AE4C001819B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 582B009D24A6AE4C001819B4 /* LaunchScreen.storyboard */; };
 		582B00AA24A6AE4C001819B4 /* MyFirstProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582B00A924A6AE4C001819B4 /* MyFirstProjectTests.swift */; };
 		582B00B524A6AE4C001819B4 /* MyFirstProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582B00B424A6AE4C001819B4 /* MyFirstProjectUITests.swift */; };
+		583EDA0B24C0BE650096A966 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583EDA0A24C0BE650096A966 /* LanguageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		582B00B024A6AE4C001819B4 /* MyFirstProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyFirstProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		582B00B424A6AE4C001819B4 /* MyFirstProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFirstProjectUITests.swift; sourceTree = "<group>"; };
 		582B00B624A6AE4C001819B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		583EDA0A24C0BE650096A966 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				582B009B24A6AE4C001819B4 /* Assets.xcassets */,
 				582B009D24A6AE4C001819B4 /* LaunchScreen.storyboard */,
 				582B00A024A6AE4C001819B4 /* Info.plist */,
+				583EDA0A24C0BE650096A966 /* LanguageManager.swift */,
 			);
 			path = MyFirstProject;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				582B009724A6AE49001819B4 /* ViewController.swift in Sources */,
 				582B009324A6AE49001819B4 /* AppDelegate.swift in Sources */,
 				582B009524A6AE49001819B4 /* SceneDelegate.swift in Sources */,
+				583EDA0B24C0BE650096A966 /* LanguageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

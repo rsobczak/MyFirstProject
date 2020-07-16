@@ -41,8 +41,14 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                             </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ciś. rozkurcz." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pvJ-U0-GgC">
+                                                <rect key="frame" x="200" y="200" width="142" height="34"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tętno" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MxO-QR-Som">
-                                                <rect key="frame" x="98" y="284" width="179.99999999999966" height="34.000000000000057"/>
+                                                <rect key="frame" x="98" y="284" width="180" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -92,12 +98,30 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ciś. rozkurcz." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pvJ-U0-GgC">
-                                                <rect key="frame" x="200" y="200" width="142" height="34"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeX-wV-wk2">
+                                                <rect key="frame" x="37" y="39" width="41" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                                <state key="normal" title="Polski"/>
+                                                <connections>
+                                                    <action selector="polskiButtonAktion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pyJ-h4-mHS"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uga-yb-Pvp">
+                                                <rect key="frame" x="139" y="38" width="62" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Angielski"/>
+                                                <connections>
+                                                    <action selector="angielskiButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6xS-Wl-G8Y"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLO-68-3A6">
+                                                <rect key="frame" x="259" y="39" width="67" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Niemiecki"/>
+                                                <connections>
+                                                    <action selector="niemieckiButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qRK-6M-3aK"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -132,6 +156,9 @@
                         <outlet property="TextViewProbny2" destination="HyL-Lf-fpx" id="K9z-gu-Zc8"/>
                         <outlet property="TrybCiemnyLabel" destination="ISb-cC-8m5" id="UGH-p5-LAh"/>
                         <outlet property="ZaładujButton" destination="UQz-cc-MHM" id="XIC-1L-tjS"/>
+                        <outlet property="angielskiButton" destination="Uga-yb-Pvp" id="B9X-mb-R9F"/>
+                        <outlet property="niemieckiButton" destination="GLO-68-3A6" id="sU2-xJ-vwd"/>
+                        <outlet property="polskiButton" destination="VeX-wV-wk2" id="wJa-xy-MuA"/>
                         <outlet property="textFieldCisnienie" destination="7wv-P5-i8z" id="OT1-DB-kOY"/>
                         <outlet property="textFieldCukier" destination="Rzv-wZ-q7a" id="I2e-jX-OC7"/>
                         <outlet property="textFieldSaturacja" destination="bju-Cm-VJj" id="Aq5-uV-qUR"/>
@@ -140,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="806" y="-280"/>
+            <point key="canvasLocation" x="676" y="-318"/>
         </scene>
     </scenes>
 </document>
