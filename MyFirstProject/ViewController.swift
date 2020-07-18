@@ -17,7 +17,11 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     @IBOutlet weak var TrybCiemnyLabel: UILabel!
     @IBOutlet weak var SwitchButton: UISwitch!
     @IBOutlet weak var TextViewProbny2: UITextView!
+    
+    @IBOutlet weak var ZatwierdzButton: UIButton!
+    @IBOutlet weak var ZapiszButton: UIButton!
     @IBOutlet weak var ZaładujButton: UIButton!
+    
    //dodano 12.07.2020
     @IBOutlet weak var TextFieldCisnienieRozkurczowe: UITextField!
     @IBOutlet weak var angielskiButton: UIButton!
@@ -45,7 +49,7 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     let userDefault = UserDefaults.standard
     TextViewProbny2.text = userDefault.string(forKey: "PodpisPrzegrodki")
  */
-        ustawEtykiety("EN")// uruchamia etykiete 
+        ustawEtykiety("PL")// uruchamia etykiete 
     }
     
     // dopisane 08.07.2020
@@ -139,15 +143,27 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     func ustawEtykiety(_ jezyk:String){
         let etykiety = languageMenager.pobierzJezyk(jezyk)
         
+        //text field
         TrybCiemnyLabel.text = etykiety["Label_DarkMode"]
         textFieldCisnienie.placeholder = etykiety["Label_CisnienieSkurczowe"]
         TextFieldCisnienieRozkurczowe.placeholder = etykiety["Label_CiesnienieRozkurczowe"]
          textFieldTetno.placeholder = etykiety["Label_tetno"]
         textFieldCukier.placeholder = etykiety["Label_cukier"]
         textFieldSaturacja.placeholder = etykiety["Label_SaturacjaKrwi"]
-        /*zapiszPrzycisk.text = etykiety("Button_Zapisz")
-        ZatwierdzButton.text = etykiety("Button_Zatwierdz")
-        ZaładujButton.placeholder = etykiety("Buton_Zaladuj")*/
+        
+        //Buttony
+        ZatwierdzButton.titleLabel?.text = etykiety["Button_Zatwierdz"]
+        ZapiszButton.titleLabel?.text = etykiety["Button_Zapisz"]
+        ZaładujButton.titleLabel?.text = etykiety["Buton_Zaladuj"]
+        polskiButton.titleLabel?.text = etykiety["Button_Polski"]
+        angielskiButton.titleLabel?.text = etykiety["Button_Angielski"]
+        niemieckiButton.titleLabel?.text = etykiety["Button_Niemiecki"]
+        
+        // text View placeholder tlumaczenie
+        TextViewProbny2.text = etykiety["TextViewProbny_wyswietlanie_wskazowka"]
+        
+        //text View tlumaczenie - wyświetlania
+        //TextViewProbny2.textS = etykiety["TextViewProbny_wyswietlanie"]
     }
     
     @IBAction func polskiButtonAktion(_ sender: Any) {

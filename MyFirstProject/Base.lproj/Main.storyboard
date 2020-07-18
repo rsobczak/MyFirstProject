@@ -22,14 +22,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                         <subviews>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YqR-6P-Xwj">
-                                                <rect key="frame" x="139" y="99" width="34.000000000000057" height="30.999999999999943"/>
+                                                <rect key="frame" x="171" y="28" width="34.000000000000057" height="30.999999999999943"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <connections>
                                                     <action selector="TrybCiemnyAkcja:" destination="BYZ-38-t0r" eventType="valueChanged" id="GBz-WK-TSm"/>
                                                 </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tryb ciemny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISb-cC-8m5">
-                                                <rect key="frame" x="235" y="99" width="115" height="31"/>
+                                                <rect key="frame" x="235" y="32" width="115" height="31"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -48,38 +48,29 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tętno" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MxO-QR-Som">
-                                                <rect key="frame" x="98" y="284" width="180" height="34"/>
+                                                <rect key="frame" x="97" y="263" width="180" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Saturacja krwi" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bju-Cm-VJj">
-                                                <rect key="frame" x="98" y="420" width="179.99999999999994" height="33.999999999999943"/>
+                                                <rect key="frame" x="98" y="401" width="179.99999999999994" height="33.999999999999943"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cukier" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rzv-wZ-q7a">
-                                                <rect key="frame" x="98" y="354" width="179.99999999999994" height="33.999999999999972"/>
+                                                <rect key="frame" x="98" y="328" width="179.99999999999994" height="33.999999999999972"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGP-HG-98N">
-                                                <rect key="frame" x="70" y="525" width="55" height="30"/>
+                                                <rect key="frame" x="46" y="523" width="79" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Zapisz"/>
                                                 <connections>
                                                     <action selector="zapiszPrzycisk:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mx3-AW-VRA"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlD-uq-bry">
-                                                <rect key="frame" x="110" y="483" width="154" height="32"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <state key="normal" title="Zatwierdź"/>
-                                                <connections>
-                                                    <action selector="ZatwierdzButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oS1-x1-InW"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQz-cc-MHM">
@@ -99,7 +90,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeX-wV-wk2">
-                                                <rect key="frame" x="37" y="39" width="41" height="30"/>
+                                                <rect key="frame" x="23" y="99" width="84" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Polski"/>
                                                 <connections>
@@ -107,7 +98,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uga-yb-Pvp">
-                                                <rect key="frame" x="139" y="38" width="62" height="30"/>
+                                                <rect key="frame" x="156" y="99" width="62" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Angielski"/>
                                                 <connections>
@@ -115,11 +106,20 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLO-68-3A6">
-                                                <rect key="frame" x="259" y="39" width="67" height="30"/>
+                                                <rect key="frame" x="283" y="99" width="67" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Niemiecki"/>
                                                 <connections>
                                                     <action selector="niemieckiButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qRK-6M-3aK"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlD-uq-bry">
+                                                <rect key="frame" x="110" y="467" width="154" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <state key="normal" title="Zatwierdź"/>
+                                                <connections>
+                                                    <action selector="ZatwierdzButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oS1-x1-InW"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -155,6 +155,8 @@
                         <outlet property="TextFieldCisnienieRozkurczowe" destination="pvJ-U0-GgC" id="faS-sr-Pzl"/>
                         <outlet property="TextViewProbny2" destination="HyL-Lf-fpx" id="K9z-gu-Zc8"/>
                         <outlet property="TrybCiemnyLabel" destination="ISb-cC-8m5" id="UGH-p5-LAh"/>
+                        <outlet property="ZapiszButton" destination="BGP-HG-98N" id="Sqg-ff-iYI"/>
+                        <outlet property="ZatwierdzButton" destination="LlD-uq-bry" id="lE5-1K-CKf"/>
                         <outlet property="ZaładujButton" destination="UQz-cc-MHM" id="XIC-1L-tjS"/>
                         <outlet property="angielskiButton" destination="Uga-yb-Pvp" id="B9X-mb-R9F"/>
                         <outlet property="niemieckiButton" destination="GLO-68-3A6" id="sU2-xJ-vwd"/>
@@ -167,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="676" y="-318"/>
+            <point key="canvasLocation" x="734" y="-331"/>
         </scene>
     </scenes>
 </document>

@@ -24,11 +24,11 @@ class languageMenager {
         }
     }
     
-    static let english: [String:String] = ["Label_DarkMode":"Dark mode" , "Label_CisnienieSkurczowe":"Systolic Pressure" , "Label_CiesnienieRozkurczowe":"Diastolic pressue" , "Label_tetno":"Heart rate" , "Label_cukier":"Glycemia" , "Label_SaturacjaKrwi":"Blood saturation" , "Button_Zatwierdz":"Confirm", "Button_Zapisz":"Save" , "Buton_Zaladuj":"Load"]
+    static let english: [String:String] = ["Label_DarkMode":"Dark mode" , "Label_CisnienieSkurczowe":"Systolic Pressure" , "Label_CiesnienieRozkurczowe":"Diastolic pressue" , "Label_tetno":"Heart rate" , "Label_cukier":"Glycemia" , "Label_SaturacjaKrwi":"Blood saturation" , "Button_Zatwierdz":"Confirm", "Button_Zapisz":"Save" , "Buton_Zaladuj":"Load" , "Button_Polski":"Polish" , "Button_Niemiecki":"German", "Button_Angielski":"English" , "TextViewProbny_wyswietlanie_wskazowka":"This should be pressure, heart rate, sugar and saturation." , "TextViewProbny_wyswietlanie":"BLABLABAL"]
     
-    static let polish: [String:String] = ["Label_DarkMode":"Tryb ciemny" , "Label_CisnienieSkurczowe":"Ciś. skurczowe" , "Label_CiesnienieRozkurczowe":"Ciś. rozkurcz." , "Label_tetno":"Tętno" , "Label_cukier":"Cukier" , "Label_SaturacjaKrwi":"Saturacja" , "Button_Zatwierdz":"Zatwierdź", "Button_Zapisz":"Zapisz" , "Buton_Zaladuj":"Załaduj"]
+    static let polish: [String:String] = ["Label_DarkMode":"Tryb ciemny" , "Label_CisnienieSkurczowe":"Ciś. skurczowe" , "Label_CiesnienieRozkurczowe":"Ciś. rozkurcz." , "Label_tetno":"Tętno" , "Label_cukier":"Cukier" , "Label_SaturacjaKrwi":"Saturacja" , "Button_Zatwierdz":"Zatwierdź", "Button_Zapisz":"Zapisz" , "Buton_Zaladuj":"Załaduj" , "Button_Polski":"Polski" , "Button_Niemiecki":"Niemiecki", "Button_Angielski":"Angielski", "TextViewProbny_wyswietlanie_wskazowka":"Tu powinno być ciśnienie, tętno, cukier i saturacja." , "TextViewProbny_wyswietlanie":"BLABLABAL"]
     
-    static let german: [String:String] = ["Label_DarkMode":"Dunkel Mode" , "Label_CisnienieSkurczowe":"systolischer Druck" , "Label_CiesnienieRozkurczowe":"diastolischer Druck" , "Label_tetno":"Puls" , "Label_cukier":"Glykämie" , "Label_SaturacjaKrwi":"Blutsättigung" , "Button_Zatwierdz":"Bestätig", "Button_Zapisz":"Speichen" , "Buton_Zaladuj":"Load"]
+    static let german: [String:String] = ["Label_DarkMode":"Dunkel Mode" , "Label_CisnienieSkurczowe":"sys. Druck" , "Label_CiesnienieRozkurczowe":"dia. Druck" , "Label_tetno":"Puls" , "Label_cukier":"Glykämie" , "Label_SaturacjaKrwi":"Blutsättigung" , "Button_Zatwierdz":"Bestätig", "Button_Zapisz":"Speichen" , "Buton_Zaladuj":"Load" , "Button_Polski":"Polnisch" , "Button_Niemiecki":"Deutsch", "Button_Angielski":"English" , "TextViewProbny_wyswietlanie_wskazowka":"Dies sollten Druck, Herzfrequenz, Zucker und Sättigung sein." , "TextViewProbny_wyswietlanie":"BLABLABAL"]
 }
 
  
