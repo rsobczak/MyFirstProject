@@ -84,13 +84,13 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Tu powinno być ciśnienie, tętno, saturacja, cukier " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HyL-Lf-fpx">
                                                 <rect key="frame" x="16" y="788" width="343" height="170"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeX-wV-wk2">
-                                                <rect key="frame" x="23" y="99" width="84" height="30"/>
+                                                <rect key="frame" x="23" y="130" width="84" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Polski"/>
                                                 <connections>
@@ -98,19 +98,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uga-yb-Pvp">
-                                                <rect key="frame" x="156" y="99" width="62" height="30"/>
+                                                <rect key="frame" x="156" y="130" width="62" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Angielski"/>
                                                 <connections>
                                                     <action selector="angielskiButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6xS-Wl-G8Y"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLO-68-3A6">
-                                                <rect key="frame" x="283" y="99" width="67" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Niemiecki"/>
-                                                <connections>
-                                                    <action selector="niemieckiButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qRK-6M-3aK"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlD-uq-bry">
@@ -120,6 +112,14 @@
                                                 <state key="normal" title="Zatwierdź"/>
                                                 <connections>
                                                     <action selector="ZatwierdzButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oS1-x1-InW"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLO-68-3A6">
+                                                <rect key="frame" x="275" y="130" width="67" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Niemiecki"/>
+                                                <connections>
+                                                    <action selector="niemieckiButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qRK-6M-3aK"/>
                                                 </connections>
                                             </button>
                                         </subviews>

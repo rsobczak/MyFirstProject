@@ -28,7 +28,8 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     @IBOutlet weak var polskiButton: UIButton!
     @IBOutlet weak var niemieckiButton: UIButton!
     
-    
+    var jezyk: String = "PL"
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -42,14 +43,14 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         textFieldCukier.delegate = self
         //dopisano 12.07.2020
         TextFieldCisnienieRozkurczowe.delegate = self
-        
+
     //dopisane 06.07.2020 do User default
     // wyciaganie z przegordki
         /*
     let userDefault = UserDefaults.standard
     TextViewProbny2.text = userDefault.string(forKey: "PodpisPrzegrodki")
  */
-        ustawEtykiety("PL")// uruchamia etykiete 
+        ustawEtykiety() // uruchamia etykiete
     }
     
     // dopisane 08.07.2020
@@ -65,15 +66,12 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     @IBAction func ZatwierdzButton(_ sender: UIButton) // przycisk jest obiektem tylko przez Xcoda zostala przypisana funckcja.
         
     {
-        // utworzenie nowego date formatera
-        let formaterCzasu = DateFormatter()
-        formaterCzasu.dateFormat = "dd/MM/yyyy HH:mm" // format czasu
-        let data: String = formaterCzasu.string(from: Date())
-        // przycisk odpowada za jakąś akcje. Za taką jaką sobie przypniemy.
-        
+
         // placeholder daty
-        let jakisTekst: String = "\(data)\n Ciśnienie: \(textFieldCisnienie.text!) /  \(TextFieldCisnienieRozkurczowe.text!)\n Tętno: \(textFieldTetno.text!) uderzeń na minutę\n Saturacja: \(textFieldSaturacja.text!) %\n Cukier: \(textFieldCukier.text!) mg/dL"
-        TextViewProbny2.text = jakisTekst
+       // let jakisTekst: String = "\(data)\n Ciśnienie: \(textFieldCisnienie.text!) /  \(TextFieldCisnienieRozkurczowe.text!)\n Tętno: \(textFieldTetno.text!) uderzeń na minutę\n Saturacja: \(textFieldSaturacja.text!) %\n Cukier: \(textFieldCukier.text!) mg/dL"
+       // TextViewProbny2.text = jakisTekst
+        
+        ustawOpis()
 
     }
     
@@ -136,11 +134,9 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
        // Presents a view controller modally - modally czyli musisz najpierw zrobic cos bo inne opcje masz zablokowane. Czyli musiszy go zdyssmisowac.
     }
     
-    @IBAction func angielskiButtonAction(_ sender: Any) {
-        ustawEtykiety("EN")
-    }
     
-    func ustawEtykiety(_ jezyk:String){
+    func ustawEtykiety(){
+    
         let etykiety = languageMenager.pobierzJezyk(jezyk)
         
         //text field
@@ -152,29 +148,51 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         textFieldSaturacja.placeholder = etykiety["Label_SaturacjaKrwi"]
         
         //Buttony
-        ZatwierdzButton.titleLabel?.text = etykiety["Button_Zatwierdz"]
-        ZapiszButton.titleLabel?.text = etykiety["Button_Zapisz"]
-        ZaładujButton.titleLabel?.text = etykiety["Buton_Zaladuj"]
-        polskiButton.titleLabel?.text = etykiety["Button_Polski"]
-        angielskiButton.titleLabel?.text = etykiety["Button_Angielski"]
-        niemieckiButton.titleLabel?.text = etykiety["Button_Niemiecki"]
+        ZatwierdzButton.setTitle(etykiety["Button_Zatwierdz"], for: .normal)
+        ZapiszButton.setTitle(etykiety["Button_Zapisz"], for: .normal)
+        ZaładujButton.setTitle(etykiety["Buton_Zaladuj"], for: .normal)
         
-        // text View placeholder tlumaczenie
-        TextViewProbny2.text = etykiety["TextViewProbny_wyswietlanie_wskazowka"]
+        polskiButton.setTitle(etykiety["Button_Polski"], for: .normal) // wiele kontrole ma cos takiego, jak wyglad zelezy od swego stanu. A stan to obecna inteakcja z kontrolką. setTitel - zmienia tytl przycisku dla zadanego stanu.
+        angielskiButton.setTitle(etykiety["Button_Angielski"], for: .normal)
+        niemieckiButton.setTitle(etykiety["Button_Niemiecki"], for:. normal)
         
-        //text View tlumaczenie - wyświetlania
-        //TextViewProbny2.textS = etykiety["TextViewProbny_wyswietlanie"]
-    }
+      ustawOpis()
+        
+ }
     
     @IBAction func polskiButtonAktion(_ sender: Any) {
-        ustawEtykiety("PL")
+        jezyk = "PL" //przypisalismy nowa wartosc do pola klasy o nazwie jezyk.
+        ustawEtykiety()
     }
    
-
     @IBAction func niemieckiButtonAction(_ sender: Any) {
-        ustawEtykiety("DE")
+        jezyk = "DE"
+        ustawEtykiety()
     }
     
+    @IBAction func angielskiButtonAction(_ sender: Any) {
+        jezyk = "EN"
+        ustawEtykiety()
+    }
+    
+    func ustawOpis() {
+    
+     //   TextViewProbny2.text = etykiety["TextViewProbny_wyswietlanie_wskazowka"]
+             
+    //text View tlumaczenie - wyświetlania - szablony
+        
+    // utworzenie nowego date formatera
+    let formaterCzasu = DateFormatter()
+    formaterCzasu.dateFormat = "dd/MM/yyyy HH:mm" // format czasu
+    let data: String = formaterCzasu.string(from: Date())
+    // przycisk odpowada za jakąś akcje. Za taką jaką sobie przypniemy.
+        
+    let etykiety = languageMenager.pobierzJezyk(jezyk)
+    let szablon = etykiety["TextViewProbny_wyswietlanie"]
+    let wiadomosc = String(format: szablon!, data , textFieldCisnienie.text! , TextFieldCisnienieRozkurczowe.text! , textFieldTetno.text! , textFieldCukier.text!, textFieldSaturacja.text!) // ! ze tekst bedzie zawsze wyswietlany
+        TextViewProbny2.text = wiadomosc
+        
+    }
 
 }// nawias zamykający klase
 
