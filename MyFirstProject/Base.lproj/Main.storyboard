@@ -123,13 +123,11 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1000" id="RjL-fo-cTb"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="QH4-iw-9hX" firstAttribute="leading" secondItem="GrP-Zh-Ed2" secondAttribute="leading" id="ASf-EK-Q3e"/>
                                     <constraint firstAttribute="trailing" secondItem="QH4-iw-9hX" secondAttribute="trailing" id="VpE-pJ-0mV"/>

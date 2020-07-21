@@ -17,12 +17,9 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     @IBOutlet weak var TrybCiemnyLabel: UILabel!
     @IBOutlet weak var SwitchButton: UISwitch!
     @IBOutlet weak var TextViewProbny2: UITextView!
-    
     @IBOutlet weak var ZatwierdzButton: UIButton!
     @IBOutlet weak var ZapiszButton: UIButton!
     @IBOutlet weak var ZaładujButton: UIButton!
-    
-   //dodano 12.07.2020
     @IBOutlet weak var TextFieldCisnienieRozkurczowe: UITextField!
     @IBOutlet weak var angielskiButton: UIButton!
     @IBOutlet weak var polskiButton: UIButton!
@@ -43,19 +40,57 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         textFieldCukier.delegate = self
         //dopisano 12.07.2020
         TextFieldCisnienieRozkurczowe.delegate = self
-
+        
+    // dopisane 20.07.2020
+        /*   //let langStr = Locale.current.languageCode
+        let langStr = NSLocale.current.languageCode
+    
+        // cody ISO 639.2
+        if langStr == "eng" {
+            return ustawEtykiety("EN")
+        } else if langStr == "ger" {
+            return ustawEtykiety("DE")
+        } else if langStr == "pol" {
+            return ustawEtykiety("PL")
+        }
+ */
+        
+        // sprawdzanie jezyka w ustawieniach 21/07/2020
+        func pobierzJezykZUstawien() -> String {
+            
+            let langStr = NSLocale.current.languageCode
+            
+        
+            switch langStr {
+            case "deu" , "de" , "ger" : return "DE";
+            case "en" : return "EN" ;
+            default : return "PL"
+            }
+        }
+        
+      jezyk = pobierzJezykZUstawien()
+      
+        ustawEtykiety()
+        
     //dopisane 06.07.2020 do User default
     // wyciaganie z przegordki
         /*
     let userDefault = UserDefaults.standard
     TextViewProbny2.text = userDefault.string(forKey: "PodpisPrzegrodki")
  */
-        ustawEtykiety() // uruchamia etykiete
+        //ustawEtykiety() // uruchamia etykiete
     }
     
     // dopisane 08.07.2020
     override func viewDidAppear (_ animated: Bool) {
-        stworzAlert(tytul: "Proszę wpisać wartości ciśnienia:", wiadomosc: "skurczowego / rozkurczowego")
+        // dopisono 21/07/2020
+        
+        let etykiety = languageMenager.pobierzJezyk(jezyk)
+        let alertNaglowek = etykiety["AlertNaglowek"]
+        let alertBody = etykiety["AlertBody"]
+        
+        stworzAlert(tytul: alertNaglowek!, wiadomosc: alertBody!)
+        
     } // co ma sie wyswietlic w moim alercie. Jesli metoda jest nadpisywana tzn. ze ta metoda juz istnieje w klasie nazwej i istnieje z konkretna sygnatura.
     
     @IBAction func ZaładujButtonAkcja(_ sender: Any) {
@@ -134,7 +169,6 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
        // Presents a view controller modally - modally czyli musisz najpierw zrobic cos bo inne opcje masz zablokowane. Czyli musiszy go zdyssmisowac.
     }
     
-    
     func ustawEtykiety(){
     
         let etykiety = languageMenager.pobierzJezyk(jezyk)
@@ -143,9 +177,12 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         TrybCiemnyLabel.text = etykiety["Label_DarkMode"]
         textFieldCisnienie.placeholder = etykiety["Label_CisnienieSkurczowe"]
         TextFieldCisnienieRozkurczowe.placeholder = etykiety["Label_CiesnienieRozkurczowe"]
-         textFieldTetno.placeholder = etykiety["Label_tetno"]
+        textFieldTetno.placeholder = etykiety["Label_tetno"]
         textFieldCukier.placeholder = etykiety["Label_cukier"]
         textFieldSaturacja.placeholder = etykiety["Label_SaturacjaKrwi"]
+        
+        // dopisano 21.07.2020
+        TextViewProbny2.text = etykiety["TextViewProbny_wyswietlanie_wskazowka"]
         
         //Buttony
         ZatwierdzButton.setTitle(etykiety["Button_Zatwierdz"], for: .normal)
@@ -155,8 +192,9 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         polskiButton.setTitle(etykiety["Button_Polski"], for: .normal) // wiele kontrole ma cos takiego, jak wyglad zelezy od swego stanu. A stan to obecna inteakcja z kontrolką. setTitel - zmienia tytl przycisku dla zadanego stanu.
         angielskiButton.setTitle(etykiety["Button_Angielski"], for: .normal)
         niemieckiButton.setTitle(etykiety["Button_Niemiecki"], for:. normal)
-        
-      ustawOpis()
+       
+        //dopisano 21.07.2020
+      //ustawOpis() - // spawia ze widzimy placeholder textViewProbny2 . Z wywołanym ustawOpis() widzimy cały tekst w TextViewProbny 2
         
  }
     
@@ -176,11 +214,8 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     }
     
     func ustawOpis() {
-    
-     //   TextViewProbny2.text = etykiety["TextViewProbny_wyswietlanie_wskazowka"]
              
     //text View tlumaczenie - wyświetlania - szablony
-        
     // utworzenie nowego date formatera
     let formaterCzasu = DateFormatter()
     formaterCzasu.dateFormat = "dd/MM/yyyy HH:mm" // format czasu
@@ -195,7 +230,6 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     }
 
 }// nawias zamykający klase
-
 // rozszzerzenie klasy ViewController , ktora dziedziczy po UITextFieldDelegate
 extension ViewController: UITextFieldDelegate { // tu tamy dzieczcenie klas. Superklasa: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool { // metoda

@@ -1,0 +1,39 @@
+
+/* Class = "UITextField"; placeholder = "Ciś. skurcz."; ObjectID = "7wv-P5-i8z"; */
+"7wv-P5-i8z.placeholder" = "Ciś. skurcz.";
+
+/* Class = "UIButton"; normalTitle = "Zapisz"; ObjectID = "BGP-HG-98N"; */
+"BGP-HG-98N.normalTitle" = "Zapisz";
+
+/* Class = "UIButton"; normalTitle = "Niemiecki"; ObjectID = "GLO-68-3A6"; */
+"GLO-68-3A6.normalTitle" = "Niemiecki";
+
+/* Class = "UITextView"; text = "Tu powinno być ciśnienie, tętno, saturacja, cukier "; ObjectID = "HyL-Lf-fpx"; */
+"HyL-Lf-fpx.text" = "Tu powinno być ciśnienie, tętno, saturacja, cukier ";
+
+/* Class = "UILabel"; text = "Tryb ciemny"; ObjectID = "ISb-cC-8m5"; */
+"ISb-cC-8m5.text" = "Tryb ciemny";
+
+/* Class = "UIButton"; normalTitle = "Zatwierdź"; ObjectID = "LlD-uq-bry"; */
+"LlD-uq-bry.normalTitle" = "Zatwierdź";
+
+/* Class = "UITextField"; placeholder = "Tętno"; ObjectID = "MxO-QR-Som"; */
+"MxO-QR-Som.placeholder" = "Tętno";
+
+/* Class = "UITextField"; placeholder = "Cukier"; ObjectID = "Rzv-wZ-q7a"; */
+"Rzv-wZ-q7a.placeholder" = "Cukier";
+
+/* Class = "UIButton"; normalTitle = "Załaduj"; ObjectID = "UQz-cc-MHM"; */
+"UQz-cc-MHM.normalTitle" = "Załaduj";
+
+/* Class = "UIButton"; normalTitle = "Angielski"; ObjectID = "Uga-yb-Pvp"; */
+"Uga-yb-Pvp.normalTitle" = "Angielski";
+
+/* Class = "UIButton"; normalTitle = "Polski"; ObjectID = "VeX-wV-wk2"; */
+"VeX-wV-wk2.normalTitle" = "Polski";
+
+/* Class = "UITextField"; placeholder = "Saturacja krwi"; ObjectID = "bju-Cm-VJj"; */
+"bju-Cm-VJj.placeholder" = "Saturacja krwi";
+
+/* Class = "UITextField"; placeholder = "Ciś. rozkurcz."; ObjectID = "pvJ-U0-GgC"; */
+"pvJ-U0-GgC.placeholder" = "Ciś. rozkurcz.";
