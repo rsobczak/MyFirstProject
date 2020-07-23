@@ -89,7 +89,7 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         let alertNaglowek = etykiety["AlertNaglowek"]
         let alertBody = etykiety["AlertBody"]
         
-        stworzAlert(tytul: alertNaglowek!, wiadomosc: alertBody!)
+        stworzAlert(tytul: alertNaglowek!, wiadomosc: alertBody!) // wyswietlanie alertu w roznych jezykach 
         
     } // co ma sie wyswietlic w moim alercie. Jesli metoda jest nadpisywana tzn. ze ta metoda juz istnieje w klasie nazwej i istnieje z konkretna sygnatura.
     
