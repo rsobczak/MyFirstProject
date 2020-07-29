@@ -8,19 +8,19 @@
 
 import Foundation
 
-class languageMenager {
+class LanguageMenager {
     
-    static func pobierzJezyk(_ jezyk:String) -> [String:String] {
+    static func downloadTheLanguage(_ language:String) -> [String:String] {
         
-        switch jezyk {
+        switch language {
         
         case "DE":
-            return languageMenager.german
+            return LanguageMenager.german
         
         case "PL":
-            return languageMenager.polish
+            return LanguageMenager.polish
         
-        default: return languageMenager.english // statyczne muszą byc poprzedzone nazwa klasy
+        default: return LanguageMenager.english // statyczne muszą byc poprzedzone nazwa klasy
         }
     }
     
@@ -30,8 +30,3 @@ class languageMenager {
     
     static let german: [String:String] = ["Label_DarkMode":"Dunkel Mode" , "Label_CisnienieSkurczowe":"sys. Druck" , "Label_CiesnienieRozkurczowe":"dia. Druck" , "Label_tetno":"Puls" , "Label_cukier":"Glykämie" , "Label_SaturacjaKrwi":"Blutsättigung" , "Button_Zatwierdz":"Bestätig", "Button_Zapisz":"Speichen" , "Buton_Zaladuj":"Load" , "Button_Polski":"Polnisch" , "Button_Niemiecki":"Deutsch", "Button_Angielski":"English" , "TextViewProbny_wyswietlanie_wskazowka":"Dies sollten Druck, Herzfrequenz, Zucker und Sättigung sein." , "TextViewProbny_wyswietlanie":"%@ \nDies sind Ihre Parameter: \n Ihr Blutdruck: %@ / %@ mmHg \n Puls: %@ per Minute \n Blutzuckerspiegel: %@ mg/dL \n Blutsättigung: %@ %%" , "AlertNaglowek": "Bitte geben Sie den Blutdruck ein" , "AlertBody": "systolischer Druck / diastolischer Druck" ]
 }
-
- 
-/*
- "\(data)\n Ciśnienie: \(textFieldCisnienie.text!) /  \(TextFieldCisnienieRozkurczowe.text!)\n Tętno: \(textFieldTetno.text!) uderzeń na minutę\n Saturacja: \(textFieldSaturacja.text!) %\n Cukier: \(textFieldCukier.text!) mg/dL"
- */

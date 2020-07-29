@@ -24,7 +24,7 @@
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YqR-6P-Xwj">
                                                 <rect key="frame" x="170.5" y="28" width="51" height="31"/>
                                                 <connections>
-                                                    <action selector="TrybCiemnyAkcja:" destination="BYZ-38-t0r" eventType="valueChanged" id="GBz-WK-TSm"/>
+                                                    <action selector="actionButtonDarkMode:" destination="BYZ-38-t0r" eventType="valueChanged" id="GBz-WK-TSm"/>
                                                 </connections>
                                             </switch>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AL2-xB-nOO">
@@ -37,21 +37,21 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="75.5" height="36"/>
                                                                 <state key="normal" title="Angielski"/>
                                                                 <connections>
-                                                                    <action selector="angielskiButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6xS-Wl-G8Y"/>
+                                                                    <action selector="actionEnglischButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6xS-Wl-G8Y"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeX-wV-wk2">
                                                                 <rect key="frame" x="104.5" y="0.0" width="76" height="36"/>
                                                                 <state key="normal" title="Polski"/>
                                                                 <connections>
-                                                                    <action selector="polskiButtonAktion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pyJ-h4-mHS"/>
+                                                                    <action selector="actionButtonPolish:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pyJ-h4-mHS"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLO-68-3A6">
                                                                 <rect key="frame" x="209.5" y="0.0" width="75.5" height="36"/>
                                                                 <state key="normal" title="Niemiecki"/>
                                                                 <connections>
-                                                                    <action selector="niemieckiButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qRK-6M-3aK"/>
+                                                                    <action selector="actionButtonGerman:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qRK-6M-3aK"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -65,7 +65,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="tAJ-1d-OyP" secondAttribute="trailing" constant="20" id="kTT-iX-hNA"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3H-qJ-yfx">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3H-qJ-yfx" userLabel="Blood Pressure Container">
                                                 <rect key="frame" x="25" y="183" width="325" height="71"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ciś. rozkurcz." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pvJ-U0-GgC">
@@ -127,21 +127,21 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <state key="normal" title="Zatwierdź"/>
                                                         <connections>
-                                                            <action selector="ZatwierdzButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oS1-x1-InW"/>
+                                                            <action selector="actionButtonConfirm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oS1-x1-InW"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGP-HG-98N">
                                                         <rect key="frame" x="20" y="81" width="46" height="30"/>
                                                         <state key="normal" title="Zapisz"/>
                                                         <connections>
-                                                            <action selector="zapiszPrzycisk:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mx3-AW-VRA"/>
+                                                            <action selector="actionButtonSave:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mx3-AW-VRA"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQz-cc-MHM">
                                                         <rect key="frame" x="254" y="81" width="51" height="30"/>
                                                         <state key="normal" title="Załaduj"/>
                                                         <connections>
-                                                            <action selector="ZaładujButtonAkcja:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uTH-n6-sOS"/>
+                                                            <action selector="actionButtonLoad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uTH-n6-sOS"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -218,24 +218,24 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="SwitchButton" destination="YqR-6P-Xwj" id="oq3-bG-eaW"/>
-                        <outlet property="TextFieldCisnienieRozkurczowe" destination="pvJ-U0-GgC" id="faS-sr-Pzl"/>
-                        <outlet property="TextViewProbny2" destination="HyL-Lf-fpx" id="K9z-gu-Zc8"/>
-                        <outlet property="TrybCiemnyLabel" destination="ISb-cC-8m5" id="UGH-p5-LAh"/>
-                        <outlet property="ZapiszButton" destination="BGP-HG-98N" id="Sqg-ff-iYI"/>
-                        <outlet property="ZatwierdzButton" destination="LlD-uq-bry" id="lE5-1K-CKf"/>
-                        <outlet property="ZaładujButton" destination="UQz-cc-MHM" id="XIC-1L-tjS"/>
-                        <outlet property="angielskiButton" destination="Uga-yb-Pvp" id="B9X-mb-R9F"/>
-                        <outlet property="niemieckiButton" destination="GLO-68-3A6" id="sU2-xJ-vwd"/>
-                        <outlet property="polskiButton" destination="VeX-wV-wk2" id="wJa-xy-MuA"/>
-                        <outlet property="textFieldCisnienie" destination="7wv-P5-i8z" id="OT1-DB-kOY"/>
-                        <outlet property="textFieldCukier" destination="Rzv-wZ-q7a" id="I2e-jX-OC7"/>
-                        <outlet property="textFieldSaturacja" destination="bju-Cm-VJj" id="Aq5-uV-qUR"/>
+                        <outlet property="buttonConfirm" destination="LlD-uq-bry" id="lE5-1K-CKf"/>
+                        <outlet property="buttonLoad" destination="UQz-cc-MHM" id="XIC-1L-tjS"/>
+                        <outlet property="buttonSave" destination="BGP-HG-98N" id="Sqg-ff-iYI"/>
+                        <outlet property="buttonSetEnglischLanguage" destination="Uga-yb-Pvp" id="B9X-mb-R9F"/>
+                        <outlet property="buttonSetGermanLanguage" destination="GLO-68-3A6" id="sU2-xJ-vwd"/>
+                        <outlet property="buttonSetPolishLanguage" destination="VeX-wV-wk2" id="wJa-xy-MuA"/>
+                        <outlet property="labelDarkMode" destination="ISb-cC-8m5" id="UGH-p5-LAh"/>
+                        <outlet property="textFieldBloodPressure" destination="7wv-P5-i8z" id="OT1-DB-kOY"/>
+                        <outlet property="textFieldBloodSaturation" destination="bju-Cm-VJj" id="Aq5-uV-qUR"/>
+                        <outlet property="textFieldBloodSugarLevel" destination="Rzv-wZ-q7a" id="I2e-jX-OC7"/>
+                        <outlet property="textFieldDiastolicPressure" destination="pvJ-U0-GgC" id="faS-sr-Pzl"/>
                         <outlet property="textFieldTetno" destination="MxO-QR-Som" id="QfB-SN-AOD"/>
+                        <outlet property="textViewViewing" destination="HyL-Lf-fpx" id="K9z-gu-Zc8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="741.60000000000002" y="-316.25615763546801"/>
+            <point key="canvasLocation" x="725" y="-393"/>
         </scene>
     </scenes>
 </document>

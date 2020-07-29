@@ -10,56 +10,40 @@ import UIKit
 
 class ViewController: UIViewController // dziedziczenie gdy po obu stronach : stoi TYP
 { // : dziedziczy
-    @IBOutlet weak var textFieldCisnienie: UITextField! // : jest typu ; nazwa obiektu : nazwa klasy
-    @IBOutlet weak var textFieldTetno: UITextField!
-    @IBOutlet weak var textFieldSaturacja: UITextField!
-    @IBOutlet weak var textFieldCukier: UITextField!
-    @IBOutlet weak var TrybCiemnyLabel: UILabel!
+    @IBOutlet weak var textFieldBloodPressure: UITextField! // : jest typu ; nazwa obiektu : nazwa klasy  // textFieldCisnienie -> textFieldBloodPressure 
+    @IBOutlet weak var textFieldTetno: UITextField! // textFieldTetno -> textFieldPulse
+    @IBOutlet weak var textFieldBloodSaturation: UITextField! //  textFieldSaturacja -> textFieldBloodSaturation
+    @IBOutlet weak var textFieldBloodSugarLevel: UITextField! // textFieldCukier -> textFieldBloodSugarLevel
+    @IBOutlet weak var labelDarkMode: UILabel! // TrybCiemnyLabel -> labelDarkMode
     @IBOutlet weak var SwitchButton: UISwitch!
-    @IBOutlet weak var TextViewProbny2: UITextView!
-    @IBOutlet weak var ZatwierdzButton: UIButton!
-    @IBOutlet weak var ZapiszButton: UIButton!
-    @IBOutlet weak var ZaładujButton: UIButton!
-    @IBOutlet weak var TextFieldCisnienieRozkurczowe: UITextField!
-    @IBOutlet weak var angielskiButton: UIButton!
-    @IBOutlet weak var polskiButton: UIButton!
-    @IBOutlet weak var niemieckiButton: UIButton!
+    @IBOutlet weak var textViewViewing: UITextView! // TextViewProbny2 -> textViewViewing
+    @IBOutlet weak var buttonConfirm: UIButton! // ZatwierdzButton --> buttonConfirm
+    @IBOutlet weak var buttonSave: UIButton! // ZapiszButton --> buttonSave
+    @IBOutlet weak var buttonLoad: UIButton! // ZaładujButton --> buttonLoad
+    @IBOutlet weak var textFieldDiastolicPressure: UITextField! // TextFieldCisnienieRozkurczowe --> textFieldDiastolicPressure
+    @IBOutlet weak var buttonSetEnglischLanguage: UIButton! // angielskiButton --> buttonSetEnglischLanguage
+    @IBOutlet weak var buttonSetPolishLanguage: UIButton!  // polskiButton --> buttonSetPolishLanguage
+    @IBOutlet weak var buttonSetGermanLanguage: UIButton! // niemieckiButton --> buttonSetGermanLanguage
     
-    var jezyk: String = "PL"
+    var lingua: String = "PL"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //view.backgroundColor = .red
         
-        textFieldCisnienie.delegate = self
+        textFieldBloodPressure.delegate = self // cisnienie
         //self jest biezaco aktywnym obiektem w ktorym self sie znajduje. ViewController jest delegatem akcji wywoływanych na rzecz textFieldCiesnienie. Wiadomosci beda przesyłane z textFieldCisnienie do VieControlera prrzy pomoc delegate
         
         textFieldTetno.delegate = self
-        textFieldSaturacja.delegate = self
-        textFieldCukier.delegate = self
+        textFieldBloodSaturation.delegate = self
+        textFieldBloodSugarLevel.delegate = self
         //dopisano 12.07.2020
-        TextFieldCisnienieRozkurczowe.delegate = self
-        
-        // dopisane 20.07.2020
-        /*   //let langStr = Locale.current.languageCode
-         let langStr = NSLocale.current.languageCode
-         
-         // cody ISO 639.2
-         if langStr == "eng" {
-         return ustawEtykiety("EN")
-         } else if langStr == "ger" {
-         return ustawEtykiety("DE")
-         } else if langStr == "pol" {
-         return ustawEtykiety("PL")
-         }
-         */
-        
+        textFieldDiastolicPressure.delegate = self
+                
         // sprawdzanie jezyka w ustawieniach 21/07/2020
-        func pobierzJezykZUstawien() -> String {
-            
+        func TakelanguageFromDevice() -> String {
             let langStr = NSLocale.current.languageCode
-            
             
             switch langStr {
             case "deu" , "de" , "ger" : return "DE";
@@ -68,9 +52,9 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
             }
         }
         
-        jezyk = pobierzJezykZUstawien()
+        lingua = TakelanguageFromDevice()
         
-        ustawEtykiety()
+        funcSetDescription()
         
         //dopisane 06.07.2020 do User default
         // wyciaganie z przegordki
@@ -85,20 +69,20 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     override func viewDidAppear (_ animated: Bool) {
         // dopisono 21/07/2020
         
-        let etykiety = languageMenager.pobierzJezyk(jezyk)
-        let alertNaglowek = etykiety["AlertNaglowek"]
-        let alertBody = etykiety["AlertBody"]
+        let myLabel = LanguageMenager.downloadTheLanguage(lingua) // etykieta --> myLabel
+        let alertNaglowek = myLabel["AlertNaglowek"]
+        let alertBody = myLabel["AlertBody"]
         
-        stworzAlert(tytul: alertNaglowek!, wiadomosc: alertBody!) // wyswietlanie alertu w roznych jezykach 
+        createAlert(tytul: alertNaglowek!, wiadomosc: alertBody!) // wyswietlanie alertu w roznych jezykach
         
     } // co ma sie wyswietlic w moim alercie. Jesli metoda jest nadpisywana tzn. ze ta metoda juz istnieje w klasie nazwej i istnieje z konkretna sygnatura.
     
-    @IBAction func ZaładujButtonAkcja(_ sender: Any) {
+    @IBAction func actionButtonLoad (_ sender: Any) { // ZaładujButtonAkcja -> actionButtonLoad
         let userDefault = UserDefaults.standard
-        TextViewProbny2.text = userDefault.string(forKey: "PodpisPrzegrodki")
+        textViewViewing.text = userDefault.string(forKey: "PodpisPrzegrodki")
     }
     
-    @IBAction func ZatwierdzButton(_ sender: UIButton) // przycisk jest obiektem tylko przez Xcoda zostala przypisana funckcja.
+    @IBAction func actionButtonConfirm (_ sender: UIButton) // przycisk jest obiektem tylko przez Xcoda zostala przypisana funckcja. // ZatwierdzButton --> actionButtonConfirm
         
     {
         
@@ -106,7 +90,7 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         // let jakisTekst: String = "\(data)\n Ciśnienie: \(textFieldCisnienie.text!) /  \(TextFieldCisnienieRozkurczowe.text!)\n Tętno: \(textFieldTetno.text!) uderzeń na minutę\n Saturacja: \(textFieldSaturacja.text!) %\n Cukier: \(textFieldCukier.text!) mg/dL"
         // TextViewProbny2.text = jakisTekst
         
-        ustawOpis()
+        setDescription()
         
     }
     
@@ -115,16 +99,16 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         // ? oznacza ze UIEVENT jest nilem i czasami moze nie mic przypisanej wartosci lub akcji
         
         
-        textFieldCisnienie.resignFirstResponder()
-        textFieldCukier.resignFirstResponder()
+        textFieldBloodPressure.resignFirstResponder()
+        textFieldBloodSugarLevel.resignFirstResponder()
         textFieldTetno.resignFirstResponder()
-        textFieldSaturacja.resignFirstResponder()
+        textFieldBloodSaturation.resignFirstResponder()
         //dodano 12.07.2020
-        TextFieldCisnienieRozkurczowe.resignFirstResponder()
+        textFieldDiastolicPressure.resignFirstResponder()
     }
     
     // tryb ciemny
-    @IBAction func TrybCiemnyAkcja(_ sender: Any) {
+    @IBAction func actionButtonDarkMode(_ sender: Any) { // TrybCiemnyAkcja --? actionButtonDarkMode
         // print ("ABC")
         
         if SwitchButton.isOn {
@@ -137,24 +121,24 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     /*dopisane dn. 06.07.2020
      https://www.youtube.com/watch?v=KDloMlCwJnY */
     // tu wkladamy do przegrodki
-    @IBAction func zapiszPrzycisk(_ sender: Any) {
+    @IBAction func actionButtonSave(_ sender: Any) { // zapiszPrzycisk -> actionButtonSave
         let userDefaults = UserDefaults.standard // standard -> Nazwa "magazynu". W takim magazynie mozna z przeprzegrodki rzegordem ma jakas nalepke. Jak chce wlozyc do magadzynu - to mozwie do jakiej przegordki to wkladam. A jak chce wyjaąć - z jakiej orzegodki chce to wyjac. Nazwa przegodki nadana jest sama. Nazwa magazynu to standard. Metoda "Set" przyjmuje 2 oarametry: 1 to wartosc ktora wkladam do przegordki , a druga wartosc - klucz - tj. nalepka tej przegordki
-        userDefaults.set(TextViewProbny2.text, forKey: "PodpisPrzegrodki") // "podpisPrzegordki" -> nazwa etykiety. SET - to w tym przypadku USTAW -> Co / Gdzie.
+        userDefaults.set(textViewViewing.text, forKey: "PodpisPrzegrodki") // "podpisPrzegordki" -> nazwa etykiety. SET - to w tym przypadku USTAW -> Co / Gdzie.
     }
     
     // dopisane 07.07.2020 wpisywanie tylko cyfr
     // delegaty sa przypiete do TextField - na rzecz text fielda wykonuje sie akcja . Moj View Controler jest delegatem dla wszystkich text Fieldow. moze ragować na zdarzenie zmiany tekstu.
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let dopuszczalnyZnak = "+1234567890 /" // dodano znak / i spacja
-        let dopuszczlnyZnakZbior = CharacterSet(charactersIn: dopuszczalnyZnak) // dwa teskty: 1 tekst ktos wpisa, a drugi tekst jest wzorcem. I chce sprawdzic czy tekst wpisany jest zgodny ze wzorcem
-        let typowanyZnakowZbior = CharacterSet(charactersIn: string) // przygotowanie do tego by wywolać linijke poniżej. By uzyc metody isSuper set musze miec 2 zbiory by je porównać. Te dwie liniki są przygotowaniem do wywołania linikji poniżej, czyli te dwie linijki przygotowuja nam ZBIORY.
-        return dopuszczlnyZnakZbior.isSuperset(of: typowanyZnakowZbior ) // metoda isSuperset - wbudowana metoda , ktora na dwoch zbiorach sprawdza czy jeden zbior jest supersetem drugiego. Sprwdzmy czy dany zbior jest supersetem dla wpisanych znakow
+        let acceptableSign = "+1234567890" // dodano znak / i spacja
+        let acceptableSignSet = CharacterSet(charactersIn: acceptableSign) // dwa teskty: 1 tekst ktos wpisa, a drugi tekst jest wzorcem. I chce sprawdzic czy tekst wpisany jest zgodny ze wzorcem
+        let typicalCharacterSet = CharacterSet(charactersIn: string) // przygotowanie do tego by wywolać linijke poniżej. By uzyc metody isSuper set musze miec 2 zbiory by je porównać. Te dwie liniki są przygotowaniem do wywołania linikji poniżej, czyli te dwie linijki przygotowuja nam ZBIORY.
+        return acceptableSignSet.isSuperset(of: typicalCharacterSet ) // metoda isSuperset - wbudowana metoda , ktora na dwoch zbiorach sprawdza czy jeden zbior jest supersetem drugiego. Sprwdzmy czy dany zbior jest supersetem dla wpisanych znakow
     }
     
     /*dopisane 08.07.2020
      https://www.youtube.com/watch?v=4EAGIiu7SFU pojawianie sie okienka Pop Up
      */
-    func stworzAlert(tytul: String, wiadomosc: String) {
+    func createAlert(tytul: String, wiadomosc: String) { // stworzAlert -> createAlert
         
         let alert = UIAlertController(title: tytul, message: wiadomosc, preferredStyle: UIAlertController.Style.alert)
         
@@ -167,67 +151,68 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         // Presents a view controller modally - modally czyli musisz najpierw zrobic cos bo inne opcje masz zablokowane. Czyli musiszy go zdyssmisowac.
     }
     
-    func ustawEtykiety(){
+    func funcSetDescription(){ // ustaw etykiety --> funcSetDescription
         
-        let etykiety = languageMenager.pobierzJezyk(jezyk)
+        let etiquette = LanguageMenager.downloadTheLanguage(lingua)
         
         //text field
-        TrybCiemnyLabel.text = etykiety["Label_DarkMode"]
-        textFieldCisnienie.placeholder = etykiety["Label_CisnienieSkurczowe"]
-        TextFieldCisnienieRozkurczowe.placeholder = etykiety["Label_CiesnienieRozkurczowe"]
-        textFieldTetno.placeholder = etykiety["Label_tetno"]
-        textFieldCukier.placeholder = etykiety["Label_cukier"]
-        textFieldSaturacja.placeholder = etykiety["Label_SaturacjaKrwi"]
+        labelDarkMode.text = etiquette["Label_DarkMode"]
+        textFieldBloodPressure.placeholder = etiquette["Label_CisnienieSkurczowe"]
+        textFieldDiastolicPressure.placeholder = etiquette["Label_CiesnienieRozkurczowe"]
+        textFieldTetno.placeholder = etiquette["Label_tetno"]
+        textFieldBloodSugarLevel.placeholder = etiquette["Label_cukier"]
+        textFieldBloodSaturation.placeholder = etiquette["Label_SaturacjaKrwi"]
         
         // dopisano 21.07.2020
-        TextViewProbny2.text = etykiety["TextViewProbny_wyswietlanie_wskazowka"]
+        textViewViewing.text = etiquette["TextViewProbny_wyswietlanie_wskazowka"]
         
         //Buttony
-        ZatwierdzButton.setTitle(etykiety["Button_Zatwierdz"], for: .normal)
-        ZapiszButton.setTitle(etykiety["Button_Zapisz"], for: .normal)
-        ZaładujButton.setTitle(etykiety["Buton_Zaladuj"], for: .normal)
+        buttonConfirm.setTitle(etiquette["Button_Zatwierdz"], for: .normal)
+        buttonSave.setTitle(etiquette["Button_Zapisz"], for: .normal)
+        buttonLoad.setTitle(etiquette["Buton_Zaladuj"], for: .normal)
         
-        polskiButton.setTitle(etykiety["Button_Polski"], for: .normal) // wiele kontrole ma cos takiego, jak wyglad zelezy od swego stanu. A stan to obecna inteakcja z kontrolką. setTitel - zmienia tytl przycisku dla zadanego stanu.
-        angielskiButton.setTitle(etykiety["Button_Angielski"], for: .normal)
-        niemieckiButton.setTitle(etykiety["Button_Niemiecki"], for:. normal)
+        buttonSetPolishLanguage.setTitle(etiquette["Button_Polski"], for: .normal) // wiele kontrole ma cos takiego, jak wyglad zelezy od swego stanu. A stan to obecna inteakcja z kontrolką. setTitel - zmienia tytl przycisku dla zadanego stanu.
+        buttonSetEnglischLanguage.setTitle(etiquette["Button_Angielski"], for: .normal)
+        buttonSetGermanLanguage.setTitle(etiquette["Button_Niemiecki"], for:. normal)
         
         //dopisano 21.07.2020
         //ustawOpis() - // spawia ze widzimy placeholder textViewProbny2 . Z wywołanym ustawOpis() widzimy cały tekst w TextViewProbny 2
         
     }
     
-    @IBAction func polskiButtonAktion(_ sender: Any) {
-        jezyk = "PL" //przypisalismy nowa wartosc do pola klasy o nazwie jezyk.
-        ustawEtykiety()
+    @IBAction func actionButtonPolish(_ sender: Any) { // polskiButtonAktion --> actionButtonPolish
+        lingua = "PL" //przypisalismy nowa wartosc do pola klasy o nazwie jezyk.
+        funcSetDescription()
     }
     
-    @IBAction func niemieckiButtonAction(_ sender: Any) {
-        jezyk = "DE"
-        ustawEtykiety()
+    @IBAction func actionButtonGerman(_ sender: Any) { // niemieckiButtonAction -> actionButtonGerman
+        lingua = "DE"
+        funcSetDescription()
     }
     
-    @IBAction func angielskiButtonAction(_ sender: Any) {
-        jezyk = "EN"
-        ustawEtykiety()
+    @IBAction func actionEnglischButton(_ sender: Any) { // angielskiButtonAction -> actionEnglischButton
+        lingua = "EN"
+        funcSetDescription()
     }
     
-    func ustawOpis() {
+    func setDescription() { //  // ustawOpis -> setDescription
         
         //text View tlumaczenie - wyświetlania - szablony
         // utworzenie nowego date formatera
-        let formaterCzasu = DateFormatter()
-        formaterCzasu.dateFormat = "dd/MM/yyyy HH:mm" // format czasu
-        let data: String = formaterCzasu.string(from: Date())
+        let timeFormat = DateFormatter()
+        timeFormat.dateFormat = "dd/MM/yyyy HH:mm" // format czasu
+        let data: String = timeFormat.string(from: Date())
         // przycisk odpowada za jakąś akcje. Za taką jaką sobie przypniemy.
         
-        let etykiety = languageMenager.pobierzJezyk(jezyk)
-        let szablon = etykiety["TextViewProbny_wyswietlanie"]
-        let wiadomosc = String(format: szablon!, data , textFieldCisnienie.text! , TextFieldCisnienieRozkurczowe.text! , textFieldTetno.text! , textFieldCukier.text!, textFieldSaturacja.text!) // ! ze tekst bedzie zawsze wyswietlany
-        TextViewProbny2.text = wiadomosc
+        let etykiety = LanguageMenager.downloadTheLanguage(lingua)
+        let template = etykiety["TextViewProbny_wyswietlanie"]
+        let message = String(format: template!, data , textFieldBloodPressure.text! , textFieldDiastolicPressure.text! , textFieldTetno.text! , textFieldBloodSugarLevel.text!, textFieldBloodSaturation.text!) // ! ze tekst bedzie zawsze wyswietlany
+        textViewViewing.text = message
         
     }
     
 }// nawias zamykający klase
+
 // rozszzerzenie klasy ViewController , ktora dziedziczy po UITextFieldDelegate
 extension ViewController: UITextFieldDelegate { // tu tamy dzieczcenie klas. Superklasa: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool { // metoda
