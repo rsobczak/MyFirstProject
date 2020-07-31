@@ -217,7 +217,6 @@
                     </view>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
-                        <outlet property="SwitchButton" destination="YqR-6P-Xwj" id="oq3-bG-eaW"/>
                         <outlet property="buttonConfirm" destination="LlD-uq-bry" id="lE5-1K-CKf"/>
                         <outlet property="buttonLoad" destination="UQz-cc-MHM" id="XIC-1L-tjS"/>
                         <outlet property="buttonSave" destination="BGP-HG-98N" id="Sqg-ff-iYI"/>
@@ -225,6 +224,7 @@
                         <outlet property="buttonSetGermanLanguage" destination="GLO-68-3A6" id="sU2-xJ-vwd"/>
                         <outlet property="buttonSetPolishLanguage" destination="VeX-wV-wk2" id="wJa-xy-MuA"/>
                         <outlet property="labelDarkMode" destination="ISb-cC-8m5" id="UGH-p5-LAh"/>
+                        <outlet property="switchButton" destination="YqR-6P-Xwj" id="oq3-bG-eaW"/>
                         <outlet property="textFieldBloodPressure" destination="7wv-P5-i8z" id="OT1-DB-kOY"/>
                         <outlet property="textFieldBloodSaturation" destination="bju-Cm-VJj" id="Aq5-uV-qUR"/>
                         <outlet property="textFieldBloodSugarLevel" destination="Rzv-wZ-q7a" id="I2e-jX-OC7"/>

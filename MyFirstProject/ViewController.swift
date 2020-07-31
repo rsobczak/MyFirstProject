@@ -17,7 +17,7 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     @IBOutlet weak var textFieldBloodSaturation: UITextField!
     @IBOutlet weak var textFieldBloodSugarLevel: UITextField!
     @IBOutlet weak var labelDarkMode: UILabel!
-    @IBOutlet weak var SwitchButton: UISwitch!
+    @IBOutlet weak var switchButton: UISwitch!
     @IBOutlet weak var textViewViewing: UITextView!
     @IBOutlet weak var buttonConfirm: UIButton!
     @IBOutlet weak var buttonSave: UIButton!
@@ -56,7 +56,7 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         }
         
         lingua = TakelanguageFromDevice()
-        funcSetDescription()
+        setDescriptionOnTheScreen()
         
     }
 
@@ -97,7 +97,7 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         // Presents a view controller modally - modally czyli musisz najpierw zrobic cos bo inne opcje masz zablokowane. Czyli musiszy go zdyssmisowac.
     }
     
-    func funcSetDescription(){
+    func setDescriptionOnTheScreen(){
         let etiquette = LanguageMenager.downloadTheLanguage(lingua)
         
         //text field
@@ -123,7 +123,7 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
         
     }
     
-    func setDescription() {
+    func setDescriptionWithTheDateAndTime() {
         
         //text View tlumaczenie - wyświetlania - szablony
         // utworzenie nowego date formatera
@@ -147,12 +147,12 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     
     @IBAction func actionButtonConfirm (_ sender: UIButton) // przycisk jest obiektem tylko przez Xcoda zostala przypisana funckcja. // ZatwierdzButton --> actionButtonConfirm
     {
-        setDescription()
+        setDescriptionWithTheDateAndTime()
     }
     
     @IBAction func actionButtonDarkMode(_ sender: Any) { // tryb ciemny
 
-        if SwitchButton.isOn {
+        if switchButton.isOn {
             overrideUserInterfaceStyle = .dark // nadpisanie stylu uzytkownika
         } else {
             overrideUserInterfaceStyle = .light
@@ -169,17 +169,17 @@ class ViewController: UIViewController // dziedziczenie gdy po obu stronach : st
     
     @IBAction func actionButtonPolish(_ sender: Any) { // polskiButtonAktion --> actionButtonPolish
         lingua = "PL" //przypisalismy nowa wartosc do pola klasy o nazwie jezyk.
-        funcSetDescription()
+        setDescriptionOnTheScreen()
     }
     
     @IBAction func actionButtonGerman(_ sender: Any) { // niemieckiButtonAction -> actionButtonGerman
         lingua = "DE"
-        funcSetDescription()
+        setDescriptionOnTheScreen()
     }
     
     @IBAction func actionEnglischButton(_ sender: Any) { // angielskiButtonAction -> actionEnglischButton
         lingua = "EN"
-        funcSetDescription()
+        setDescriptionOnTheScreen()
     }
     
 }// nawias zamykający klase
